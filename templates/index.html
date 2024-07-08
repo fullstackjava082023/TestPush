@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if first_name %}
+        <h1>Hello, {{ first_name }}</h1>
+    {% else %}
+        <h1>Hello, Stranger!</h1>
+    {% endif %}
+
+    <h2>days from database</h2>
+    <ul>
+        {% for i in listfromdb: %}
+            <li>{{i}}</li>
+        {%endfor%}
+    </ul>
+
+    <form action="/addDay" method="post">
+        <div>
+            <label for="newDay">Enter new day of the week:</label>
+            <input type="text" name="newDay" id="newDay" required>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+        {% if error %}
+        <span>
+            <h4 style="color:red">{{error}}</h4>
+        </span>
+        {% endif %}
+    </form>
+    
+   
+</body>
+</html>
